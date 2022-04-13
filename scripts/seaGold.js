@@ -3,6 +3,7 @@ const utils = require("./utils/utils");
 const { Grid, Astar } = require("fast-astar");
 const email = require("./utils/email");
 const env = require("./utils/env");
+const DingtalkBot = require('./utils/DingtalkBot')
 
 const bot = new DingtalkBot({
   webhook: env.DINGTALK_WEBHOOK,

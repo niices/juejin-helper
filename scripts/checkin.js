@@ -2,6 +2,7 @@ const JuejinHelper = require("juejin-helper");
 const utils = require("./utils/utils");
 const email = require("./utils/email");
 const env = require("./utils/env");
+const DingtalkBot = require('./utils/DingtalkBot')
 
 const bot = new DingtalkBot({
   webhook: env.DINGTALK_WEBHOOK,
