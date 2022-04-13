@@ -3,6 +3,11 @@ const utils = require("./utils/utils");
 const email = require("./utils/email");
 const env = require("./utils/env");
 
+const bot = new DingtalkBot({
+  webhook: env.DINGTALK_WEBHOOK,
+  secret: env.DINGTALK_SECRET,
+})
+
 class CheckIn {
   username = "";
   todayStatus = 0; // 未签到
@@ -179,7 +184,7 @@ async function run(args) {
     subject: "掘金每日签到",
     text: content
   });
-  utils.dingding(content);
+  bot.sendMessage(content);
 }
 
 run(process.argv.splice(2)).catch(error => {

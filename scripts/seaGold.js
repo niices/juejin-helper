@@ -4,6 +4,11 @@ const { Grid, Astar } = require("fast-astar");
 const email = require("./utils/email");
 const env = require("./utils/env");
 
+const bot = new DingtalkBot({
+  webhook: env.DINGTALK_WEBHOOK,
+  secret: env.DINGTALK_SECRET,
+})
+
 class SeaGold {
   gameApi = null;
 
@@ -406,7 +411,7 @@ async function run(args) {
     subject: "海底掘金游戏",
     text: content
   });
-  utils.dingding(content);
+  bot.sendMessage(content);
 }
 
 run(process.argv.splice(2)).catch(error => {
